@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import './Header.css';
+import BookShow from '../../screens/bookshow/BookShow';
 import Button from '@material-ui/core/Button';
 import logo from '../../assets/logo.svg';
 import Modal from 'react-modal';
@@ -120,6 +122,10 @@ class Header extends Component {
         this.setState({contactnumber: e.target.value});
     }
 
+    bookshowHandler = () => {
+        ReactDOM.render(<BookShow />, document.getElementById('root'));
+    }
+
 
     render() {
         return (
@@ -129,6 +135,12 @@ class Header extends Component {
                     <div className="login-button">
                         <Button variant="contained" color="default" onClick={this.openModalHandler}>Login</Button>
                     </div>
+                    {this.props.showBookShowButton === "true" ?
+                    <div className="bookshow-button">
+                        <Button variant="contained" color="primary" onClick={this.bookshowHandler}>
+                            BOOK SHOW
+                        </Button>
+                    </div> : ""}
                 </header>
                 <Modal 
                     ariaHideApp={false}

@@ -83,7 +83,7 @@ class Details extends Component {
                         </div>
                     </div>
                     <div className="rightDetails">
-                    <Typography>
+                        <Typography>
                             <span className="bold">Rate this movie: </span>
                         </Typography>
                         {this.state.starIcons.map(star => (
